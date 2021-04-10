@@ -1,0 +1,21 @@
+name: Unity Build
+on:
+  push:
+    tags:
+    - '*'
+jobs:
+  windows:
+    name: Windows Build and Post
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ETdoFresh/Actions/UnityBuild@2019.4.19f1
+      with:
+        UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        BUILD_NAME: Escapism
+        BUILD_TARGET: Windows
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Escapism_Windows.zip
+        path: ./Build
