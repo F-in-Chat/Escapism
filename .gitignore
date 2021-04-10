@@ -37,3 +37,6 @@ sysinfo.txt
 
 # Rider Folder
 .idea
+
+# Visual Studio Code Folder
+.vscode
