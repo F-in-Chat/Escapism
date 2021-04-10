@@ -4,14 +4,11 @@ using System.Linq;
 using PlayGrounds.ET.Scripts.GameSettings;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
-using UnityEngine;
 
-namespace SailorStrike.Editor.Global
+namespace PlayGrounds.ET.Editor
 {
     public static class UnityBuild
     {
-        private const string URL = "https://www.etdofresh.com/SailorStrike/";
-
         private static string[] ActiveScenes => EditorBuildSettings.scenes
                 .Where(s => s.enabled)
                 .Select(s => s.path)
@@ -80,8 +77,6 @@ namespace SailorStrike.Editor.Global
             Process.Start("git", $"commit -m \"Increment GameSettings Version to {newTag}\"")?.WaitForExit();
             Process.Start("git", $"push")?.WaitForExit();
             UnityEngine.Debug.Log($"Increment Version on Repository...");
-            UnityEngine.Debug.Log($"{URL}{tag} copied to clipboard!");
-            GUIUtility.systemCopyBuffer = $"{URL}{tag}";
         }
 
         private static BuildReport Build(BuildTargetGroup targetGroup, BuildTarget target)
