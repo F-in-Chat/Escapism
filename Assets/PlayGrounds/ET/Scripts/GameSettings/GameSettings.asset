@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   majorVersion: 0
   minorVersion: 0
-  microVersion: 8
+  microVersion: 9
   audioVolume: 1
   musicVolume: 0.5
   mixer: {fileID: 24100000, guid: 0770ce648b951d1488add2abc0aec043, type: 2}
