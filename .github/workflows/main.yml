@@ -27,7 +27,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        release_name: ${{ github.ref }}
         draft: false
         prerelease: false
     - name: Upload Release Asset
@@ -40,3 +40,11 @@ jobs:
         asset_path: ./Escapism.zip
         asset_name: Escapism.zip
         asset_content_type: application/zip
+    - name: Upload to Google Drive
+      uses: satackey/action-google-drive@v1
+      with:
+        skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
+        upload-from: ./Escapism.zip
+        upload-to: /Shared/EscapismBuilds/Escapism${{ github.ref }}.zip
+        google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }} # For those who set up Google Drive API client ID and secret themselves
+        google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
