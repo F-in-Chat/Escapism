@@ -30,38 +30,40 @@ jobs:
         release_name: ${{ github.ref }}
         draft: false
         prerelease: false
+    - name: Get Filename
+      id: get_filename
+      run: |
+        echo ::set-output name=FILENAME::Escapism${GITHUB_REF#refs/tags/}.zip
+        echo ::set-output name=FILEPATH::./Escapism${GITHUB_REF#refs/tags/}.zip
+    - name: Echo the version
+      run: |
+        echo $FILENAME
+        echo $FILEPATH
+      env:
+        FILENAME: ${{ steps.get_filename.outputs.FILENAME }}
+        FILEPATH: ${{ steps.get_filename.outputs.FILEPATH }}
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        FILENAME: ${{ steps.get_filename.outputs.FILENAME }}
+        FILEPATH: ${{ steps.get_filename.outputs.FILEPATH }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./Escapism.zip
-        asset_name: Escapism.zip
+        asset_path: $FILEPATH
+        asset_name: $FILENAME
         asset_content_type: application/zip
-    - name: Get the version
-      id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
-    - name: Echo the version
-      run: echo $VERSION
-      env:
-        VERSION: ${{ steps.get_version.outputs.VERSION }}
-    - name: Append Tag to Zip
-      run: |
-        mv ./Escapism.zip ./Escapism${VERSION}.zip
-      env:
-        VERSION: ${{ steps.get_version.outputs.VERSION }}
     - name: Upload to Google Drive
       uses: satackey/action-google-drive@v1
       with:
         skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
-        upload-from: ./Escapism${VERSION}.zip
+        upload-from: $FILEPATH
         upload-to: /Shared/EscapismBuilds
         google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }} # For those who set up Google Drive API client ID and secret themselves
         google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
       env:
-        VERSION: ${{ steps.get_version.outputs.VERSION }}
+        FILEPATH: ${{ steps.get_filename.outputs.FILEPATH }}
   webgl:
     name: WebGL Build and Post
     runs-on: ubuntu-latest    
