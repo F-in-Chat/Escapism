@@ -58,3 +58,21 @@ jobs:
         upload-to: /Shared/EscapismBuilds
         google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }} # For those who set up Google Drive API client ID and secret themselves
         google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+  webgl:
+    name: WebGL Build and Post
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ETdoFresh/Actions/UnityBuild@2019.4.19f1-webgl
+      with:
+        UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        BUILD_NAME: Escapism
+        BUILD_TARGET: WebGL
+    - uses: ETdoFresh/Actions/TagDirectory@2019.4.19f1-webgl
+    - uses: ETdoFresh/Actions/UploadToGithubPages@2019.4.19f1-webgl
+      with:
+        WIPEOUT_PREVIOUS_CONTENT: 0
+        GITHUB_REPOSITORY: F-in-Chat/EscapismWebGL
+        GITHUB_USERNAME: ${{ secrets.UNITY_USERNAME }}
+        GITHUB_TOKEN: ${{ secrets.UNITY_TOKEN }}
