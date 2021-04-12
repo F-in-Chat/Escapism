@@ -57,7 +57,7 @@ jobs:
       with:
         skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
         upload-from: ${{ steps.get_filename.outputs.FILEPATH }}
-        upload-to: /Escapism/Builds
+        upload-to: /EscapismAutoBuild
         google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }} # For those who set up Google Drive API client ID and secret themselves
         google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
   webgl:
