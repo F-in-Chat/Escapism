@@ -47,11 +47,14 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           return context.payload.ref.replace(/refs\/tags\//, '');
+    - name: Append Tag to Zip
+      run: |
+        mv Escapism.zip Escapism${{ steps.tag.outputs.result }}.zip
     - name: Upload to Google Drive
       uses: satackey/action-google-drive@v1
       with:
         skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
-        upload-from: ./Escapism.zip
-        upload-to: /Shared/EscapismBuilds/Escapism${{ steps.tag.outputs.result }}.zip
+        upload-from: ./Escapism${{ steps.tag.outputs.result }}.zip
+        upload-to: /Shared/EscapismBuilds
         google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }} # For those who set up Google Drive API client ID and secret themselves
         google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
