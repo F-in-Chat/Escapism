@@ -9,7 +9,8 @@ public class WeaponIcon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon_label.text = "Axe";
+        if (weapon_label)
+            weapon_label.text = "Axe";
     }
 
     // Update is called once per frame
