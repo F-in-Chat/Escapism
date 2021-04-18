@@ -50,6 +50,12 @@ public class SceneDirector : MonoBehaviour
         // if yes, close application
         // This will all go in the "Main Menu" script
 
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBPLAYER
+         Application.OpenURL("https://github.com/F-in-Chat/Escapism");
+#else
+         Application.Quit();
+#endif
     }
 }

@@ -14,7 +14,7 @@ public class Settings : MonoBehaviour
 
     void Awake()
     {
-        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        //Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         //Checking and Populating Resolutions
         resolutions = Screen.resolutions;
 
