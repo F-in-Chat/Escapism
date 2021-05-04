@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DealDamage : MonoBehaviour
+namespace InGame.Characters.Core.Scripts
 {
-    public void SendDamage(int damage) {
-        PlayerHealth playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        playerHealth.TakeDamage(damage);
+    public class DealDamage : MonoBehaviour
+    {
+        public void SendDamage(int damage) {
+            PlayerHealth playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damage);
+        }
     }
 }

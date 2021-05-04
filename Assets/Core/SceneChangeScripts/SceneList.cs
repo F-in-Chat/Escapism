@@ -1,16 +1,16 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-
-[System.Serializable]
-public class SceneList
+﻿namespace SceneChangeScripts
 {
-    public string levelName;
+    [System.Serializable]
+    public class SceneList
+    {
+        public string levelName;
 
-    public string mainScene;
+        public string mainScene;
 
-    public string gameplayScene;
+        public string gameplayScene;
 
-    public string environmentScene;
+        public string environmentScene;
 
-    public string audioScene;
+        public string audioScene;
+    }
 }

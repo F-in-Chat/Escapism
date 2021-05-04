@@ -1,67 +1,67 @@
-﻿ using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class CharacterBase : MonoBehaviour
+namespace InGame.Characters.Core.Scripts
 {
-    #region Character Stats
-    [Header("Stats")]
-    public int health;
-    public int energy;
-    public int infection;
-    public float moveSpeed;
-    public float acceleration;
-    public float turnSpeed;
-    #endregion
+    [RequireComponent(typeof(Animator))]
+    public class CharacterBase : MonoBehaviour
+    {
+        #region Character Stats
+        [Header("Stats")]
+        public int health;
+        public int energy;
+        public int infection;
+        public float moveSpeed;
+        public float acceleration;
+        public float turnSpeed;
+        #endregion
     
-    #region Components
-    protected Animator myAnimator;
-    #endregion
+        #region Components
+        protected Animator myAnimator;
+        #endregion
 
-    #region State Tracking
-    private MovementState movementState = MovementState.Idle;
-    private InteractionState interactionState = InteractionState.Neutral;
-    private PositionState positionState = PositionState.Stand;
-    #endregion
+        #region State Tracking
+        private MovementState movementState = MovementState.Idle;
+        private InteractionState interactionState = InteractionState.Neutral;
+        private PositionState positionState = PositionState.Stand;
+        #endregion
 
-    public enum MovementState
-    {
-        Idle,
-        Walk,
-        Run,
-        Crawling,
-    }
+        public enum MovementState
+        {
+            Idle,
+            Walk,
+            Run,
+            Crawling,
+        }
 
-    public enum InteractionState
-    {
-        Neutral,
-        Interacting,
-        Attack,
-        Ability,
-        Venting,
-    }
+        public enum InteractionState
+        {
+            Neutral,
+            Interacting,
+            Attack,
+            Ability,
+            Venting,
+        }
 
-    public enum PositionState
-    {
-        Stand,
-        Prone,
-        Crouch,
-        Vent,
-    }
+        public enum PositionState
+        {
+            Stand,
+            Prone,
+            Crouch,
+            Vent,
+        }
 
-    public MovementState GetMovementState()
-    {
-        return movementState;
-    }
-    public InteractionState GetInteractionState()
-    {
-        return interactionState;
-    }
-    public PositionState GetPositionState()
-    {
-        return positionState;
-    }
+        public MovementState GetMovementState()
+        {
+            return movementState;
+        }
+        public InteractionState GetInteractionState()
+        {
+            return interactionState;
+        }
+        public PositionState GetPositionState()
+        {
+            return positionState;
+        }
 
 
 
@@ -97,5 +97,6 @@ public class CharacterBase : MonoBehaviour
             Will states be here? Or will they be in the higher level scripts?
     */
 
-    // Enums are going to be used for communication a simple logic checks.
+        // Enums are going to be used for communication a simple logic checks.
+    }
 }

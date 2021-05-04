@@ -1,70 +1,70 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerController : CharacterBase
+namespace InGame.Characters.Core.Scripts
 {
-    #region Temp Variables
-    [SerializeField]
-    private float speed = 10;
-    private Vector3 direction;
-    #endregion
+    public class PlayerController : CharacterBase
+    {
+        #region Temp Variables
+        [SerializeField]
+        private float speed = 10;
+        private Vector3 direction;
+        #endregion
 
-    public float mouseSensitivityX = 100f;
-    public float mouseSensitivityY = 100f;
-    private Rigidbody rBody;
-    private Transform playerTransform;
-    public Camera playerCamera;
-    private float xRotation = 0f;
+        public float mouseSensitivityX = 100f;
+        public float mouseSensitivityY = 100f;
+        private Rigidbody rBody;
+        private Transform playerTransform;
+        public Camera playerCamera;
+        private float xRotation = 0f;
 
-    #region User Input
-    private float x;
-    private float z;
-    private float mouseX;
-    private float mouseY;
-    #endregion
+        #region User Input
+        private float x;
+        private float z;
+        private float mouseX;
+        private float mouseY;
+        #endregion
     
 
-    void Start()
-    {
-        rBody = GetComponent<Rigidbody>();
-        playerTransform = GetComponent<Transform>();
-        //playerCamera = GetComponentInChildren<Camera>();
+        void Start()
+        {
+            rBody = GetComponent<Rigidbody>();
+            playerTransform = GetComponent<Transform>();
+            //playerCamera = GetComponentInChildren<Camera>();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
-    /* The player movement and camera movement are fighting with each other! How do I fix this? */
-    void Update()
-    {
-        PlayerRotationVersion1();
-        PlayerMovementVersion1();
-    }
+        /* The player movement and camera movement are fighting with each other! How do I fix this? */
+        void Update()
+        {
+            PlayerRotationVersion1();
+            PlayerMovementVersion1();
+        }
 
-    void PlayerMovementVersion1()
-    {
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
+        void PlayerMovementVersion1()
+        {
+            x = Input.GetAxis("Horizontal");
+            z = Input.GetAxis("Vertical");
 
-        direction = (transform.right * x + transform.forward * z).normalized;
-        rBody.velocity = direction * speed;
-    }
+            direction = (transform.right * x + transform.forward * z).normalized;
+            rBody.velocity = direction * speed;
+        }
 
-    void PlayerRotationVersion1()
-    {
-        mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
-        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+        void PlayerRotationVersion1()
+        {
+            mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+            mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
         
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-        rBody.rotation *= Quaternion.Euler(0, mouseX, 0);
-    }
+            rBody.rotation *= Quaternion.Euler(0, mouseX, 0);
+        }
 
-    /* 
+        /* 
     Need the following States:
         1. Walk
             a. Standing - Normal movement
@@ -86,4 +86,5 @@ public class PlayerController : CharacterBase
             d. Affect on Infection
     */
 
+    }
 }

@@ -1,34 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HUDFunctionality : MonoBehaviour
+namespace UI.HUD.Scripts
 {
-    // Start is called before the first frame update
-    public PowerWheel powerWheel;
+    public class HUDFunctionality : MonoBehaviour
+    {
+        // Start is called before the first frame update
+        public PowerWheel powerWheel;
 
-    public bool test = false;
+        public bool test = false;
 
-    private bool displayPowerWheel() {
-        if (test) {
-            powerWheel = new PowerWheel();
-            return true;
+        private bool displayPowerWheel() {
+            if (test) {
+                powerWheel = new PowerWheel();
+                return true;
+            }
+            return false;
         }
-        return false;
-    }
 
-    private void openPowerWheel() {
-        displayPowerWheel();
-    }
-    void Start()
-    {
-        // displayPowerWheel();
-    }
+        private void openPowerWheel() {
+            displayPowerWheel();
+        }
+        void Start()
+        {
+            // displayPowerWheel();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // test = true;
-        // openPowerWheel();
+        // Update is called once per frame
+        void Update()
+        {
+            // test = true;
+            // openPowerWheel();
+        }
     }
 }

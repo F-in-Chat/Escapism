@@ -1,20 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class MapIcon : MonoBehaviour
+namespace UI.HUD.Scripts
 {
-    public TMPro.TMP_Text map_label;
-    // Start is called before the first frame update
-    void Start()
+    public class MapIcon : MonoBehaviour
     {
-        map_label.text = "Power Room";
-    }
+        public TMPro.TMP_Text map_label;
+        // Start is called before the first frame update
+        void Start()
+        {
+            map_label.text = "Power Room";
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

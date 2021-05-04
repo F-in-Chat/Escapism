@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IKillable
+﻿namespace InGame.Characters.Core.Scripts.Interfaces
 {
-    void Kill();
+    public interface IKillable
+    {
+        void Kill();
+    }
 }

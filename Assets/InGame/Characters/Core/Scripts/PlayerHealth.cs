@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+namespace InGame.Characters.Core.Scripts
 {
-    public int health;
+    public class PlayerHealth : MonoBehaviour
+    {
+        public int health;
 
-    public void TakeDamage(int damage) {
-        health -= damage;
-        Debug.Log("Health = " + health.ToString());
+        public void TakeDamage(int damage) {
+            health -= damage;
+            Debug.Log("Health = " + health.ToString());
+        }
     }
 }

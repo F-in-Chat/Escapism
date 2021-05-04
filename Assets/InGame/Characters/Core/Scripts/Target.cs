@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 
-public class Target : MonoBehaviour
+namespace InGame.Characters.Core.Scripts
 {
-    public float health = 50f;
-
-    public void TakeDamage(float amount)
+    public class Target : MonoBehaviour
     {
-        health -= amount;
-        if (health <= 0)
+        public float health = 50f;
+
+        public void TakeDamage(float amount)
         {
-             Die();
+            health -= amount;
+            if (health <= 0)
+            {
+                Die();
+            }
         }
-    }
 
-    void Die()
-    {
-        Destroy(gameObject);
+        void Die()
+        {
+            Destroy(gameObject);
+        }
     }
 }

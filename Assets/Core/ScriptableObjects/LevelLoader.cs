@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : ScriptableObject
+namespace ScriptableObjects
 {
-    public void LoadLevel()
+    public class LevelLoader : ScriptableObject
     {
-        SceneManager.LoadScene(name);
+        public void LoadLevel()
+        {
+            SceneManager.LoadScene(name);
+        }
     }
 }

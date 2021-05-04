@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-namespace UnityTemplateProjects
+namespace InGame.Cameras
 {
     public class SimpleCameraController : MonoBehaviour
     {

@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+namespace MainMenu.Scripts
 {
-    [SerializeField]
-    private Animator playAnimator;
-
-    public void UIHovered()
+    public class MainMenu : MonoBehaviour
     {
-        //playAnimator.GetParameter
-    }
+        [SerializeField]
+        private Animator playAnimator;
 
-    /*
+        public void UIHovered()
+        {
+            //playAnimator.GetParameter
+        }
+
+        /*
         Need to take player input here
 
         We will need to set-up a system for going forward and backwards through the menu system with buttons and keys only.
@@ -20,4 +20,5 @@ public class MainMenu : MonoBehaviour
         We will also have buttons for the player to navigate through the menus.
     */
 
+    }
 }
