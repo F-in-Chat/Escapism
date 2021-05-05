@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4859506124458079488}
   - component: {fileID: 8421648322437560997}
   - component: {fileID: 5997461882430508655}
+  - component: {fileID: 5618631747673880873}
   m_Layer: 0
   m_Name: Wall_Even_Angle02_000_duplicate
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5618631747673880873
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204964618574294970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1561066482613332915, guid: 90e5603e2ab694c0788473449c6355a4, type: 3}

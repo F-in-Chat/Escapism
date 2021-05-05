@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4245439734948275179}
   - component: {fileID: 956187432332864590}
   - component: {fileID: 3072009300398594180}
+  - component: {fileID: -3062960677026992995}
   m_Layer: 0
   m_Name: Wall_Even_Curve_000_duplicate
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-3062960677026992995
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3576144383270713681}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2209839307022293791, guid: d6cdf2ef20ef14953855860d2a19fb7f, type: 3}

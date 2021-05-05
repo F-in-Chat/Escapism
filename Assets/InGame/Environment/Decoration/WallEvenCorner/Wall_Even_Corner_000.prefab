@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 824953510575768430}
   - component: {fileID: 4385671841064914123}
   - component: {fileID: 1961878407810349057}
+  - component: {fileID: 5483723822543929300}
   m_Layer: 0
   m_Name: Wall_Even_Corner_000
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5483723822543929300
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16046771996514772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3760113846459092455, guid: 0f42b46686d45194db961dd7882cbca7, type: 3}
