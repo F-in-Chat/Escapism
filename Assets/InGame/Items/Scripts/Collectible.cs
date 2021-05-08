@@ -3,13 +3,18 @@ using Parents;
 using SoundEffects;
 using UnityEngine;
 
-namespace InGame.Collectibles.Scripts
+namespace InGame.Items.Scripts
 {
     public class Collectible : MonoBehaviour
     {
         [SerializeField] private SoundEffect collectSound;
         [SerializeField] private GameObject collectParticles;
+        [SerializeField] private ItemType itemType;
+        [SerializeField] private int quantity;
         private Transform item;
+
+        public ItemType ItemType => itemType;
+        public int Quantity => quantity;
 
         private void Awake()
         {

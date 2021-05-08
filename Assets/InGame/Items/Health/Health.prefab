@@ -219,6 +219,23 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8927417130609535652, guid: fe8767a1d433ae44885278a11643b929,
+        type: 3}
+      propertyPath: itemType
+      value: 
+      objectReference: {fileID: 11400000, guid: 860151dff1fef2b4997a09d9e5d24c74,
+        type: 2}
+    - target: {fileID: 8927417130609535652, guid: fe8767a1d433ae44885278a11643b929,
+        type: 3}
+      propertyPath: quantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927417130609535652, guid: fe8767a1d433ae44885278a11643b929,
+        type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 6248715e1a9066342aa8d549f916e2bb,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe8767a1d433ae44885278a11643b929, type: 3}
 --- !u!4 &218086897622927146 stripped
