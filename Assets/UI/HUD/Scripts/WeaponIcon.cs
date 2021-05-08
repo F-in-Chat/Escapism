@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class WeaponIcon : MonoBehaviour
+namespace UI.HUD.Scripts
 {
-    public TMPro.TMP_Text weapon_label;
-    // Start is called before the first frame update
-    void Start()
+    public class WeaponIcon : MonoBehaviour
     {
-        if (weapon_label)
-            weapon_label.text = "Axe";
-    }
+        public TMPro.TMP_Text weapon_label;
+        // Start is called before the first frame update
+        void Start()
+        {
+            if (weapon_label)
+                weapon_label.text = "Axe";
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

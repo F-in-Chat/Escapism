@@ -1,28 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DoorController : MonoBehaviour
+namespace InGame.Environment.Doors.Scripts
 {
-    public GameObject intructions;
-    private void OnTriggerStay(Collider other)
+    public class DoorController : MonoBehaviour
     {
-        if(other.tag == "Door")
+        public GameObject intructions;
+        private void OnTriggerStay(Collider other)
         {
-            intructions.SetActive(true);
-            Animator anim = other.GetComponentInChildren<Animator>();
-            if(Input.GetKeyDown(KeyCode.E))
+            if(other.tag == "Door")
             {
-                anim.SetTrigger("OpenClose");
+                intructions.SetActive(true);
+                Animator anim = other.GetComponentInChildren<Animator>();
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    anim.SetTrigger("OpenClose");
+                }
             }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "Door")
+        private void OnTriggerExit(Collider other)
         {
-            intructions.SetActive(false);
+            if(other.tag == "Door")
+            {
+                intructions.SetActive(false);
+            }
         }
     }
 }

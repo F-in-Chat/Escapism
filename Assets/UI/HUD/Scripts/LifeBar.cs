@@ -1,20 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using InGame.Characters.Core.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeBar : MonoBehaviour
+namespace UI.HUD.Scripts
 {
-    public Slider lifeBar;
-    PlayerHealth playerHealth;
-
-    void Start()
+    public class LifeBar : MonoBehaviour
     {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-    }
+        public Slider lifeBar;
+        PlayerHealth playerHealth;
 
-    void Update()
-    {
-        lifeBar.value = playerHealth.health;
+        void Start()
+        {
+            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        }
+
+        void Update()
+        {
+            lifeBar.value = playerHealth.health;
+        }
     }
 }

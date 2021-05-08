@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IDamageable<T>
+﻿namespace InGame.Characters.Core.Scripts.Interfaces
 {
-    void TakeDamage(T damage);
+    public interface IDamageable<T>
+    {
+        void TakeDamage(T damage);
+    }
 }

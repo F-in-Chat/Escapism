@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-public class InteractableBase : MonoBehaviour
+namespace InGame.Puzzles.Scripts
 {
+    [RequireComponent(typeof(Collider))]
+    public class InteractableBase : MonoBehaviour
+    {
 
+    }
 }

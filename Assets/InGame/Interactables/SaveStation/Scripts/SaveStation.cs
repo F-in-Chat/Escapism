@@ -1,19 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using InGame.Puzzles.Scripts;
 using UnityEngine;
 
-public class SaveStation : InteractableBase
+namespace InGame.Interactables.SaveStation.Scripts
 {
-    // Show save menu UI
-    public void OnTriggerEnter(Collider trigger)
+    public class SaveStation : InteractableBase
     {
+        // Show save menu UI
+        public void OnTriggerEnter(Collider trigger)
+        {
+
+        }
+
+        // Hide save menu UI
+        public void OnTriggerExit(Collider trigger)
+        {
+
+        }
 
     }
-
-    // Hide save menu UI
-    public void OnTriggerExit(Collider trigger)
-    {
-
-    }
-
 }

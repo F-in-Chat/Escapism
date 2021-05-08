@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class PowerWheel : MonoBehaviour
+namespace UI.HUD.Scripts
 {
-    public TMPro.TMP_Text first_power;
-
-    public TMPro.TMP_Text second_power;
-
-    public TMPro.TMP_Text third_power;
-    // Start is called before the first frame update
-    void Start()
+    public class PowerWheel : MonoBehaviour
     {
-        first_power.text = "Telekinesis";
-        second_power.text = "Freeze Time";
-        third_power.text = "Bioluminescence";
-    }
+        public TMPro.TMP_Text first_power;
 
-    // Update is called once per frame
-    void Update()
-    {
+        public TMPro.TMP_Text second_power;
+
+        public TMPro.TMP_Text third_power;
+        // Start is called before the first frame update
+        void Start()
+        {
+            first_power.text = "Telekinesis";
+            second_power.text = "Freeze Time";
+            third_power.text = "Bioluminescence";
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

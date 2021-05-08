@@ -1,76 +1,79 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using InGame.Levels.Level_1;
+using InGame.Puzzles.Scripts.Hexagon_Puzzle;
 using UnityEngine;
 
-public class OptionsMenu : MonoBehaviour
+namespace UI.Options
 {
-    public delegate void OpenOptionsMenu(bool hasOpened);
-    public static OpenOptionsMenu onOpenOptionMenu;
-
-    private bool inInterface = false;
-    private bool inOptionsMenu = false;
-    [SerializeField] private GameObject menuUI;
-    [SerializeField] private GameObject hUDUI;
-    [SerializeField] private GameObject topMenuUI;
-    [SerializeField] private GameObject settingUI;
-
-    void Awake()
+    public class OptionsMenu : MonoBehaviour
     {
-        HexagonPuzzleManager.onHasEnteredInterface += InInterface;
-        FirstLevelManager.onFadingInLevel += InInterface;
-    }
+        public delegate void OpenOptionsMenu(bool hasOpened);
+        public static OpenOptionsMenu onOpenOptionMenu;
 
-    void Update()
-    {
-        if (!inInterface)
+        private bool inInterface = false;
+        private bool inOptionsMenu = false;
+        [SerializeField] private GameObject menuUI;
+        [SerializeField] private GameObject hUDUI;
+        [SerializeField] private GameObject topMenuUI;
+        [SerializeField] private GameObject settingUI;
+
+        void Awake()
         {
-            if(Input.GetKeyDown(KeyCode.Escape) && !inOptionsMenu)
+            HexagonPuzzleManager.onHasEnteredInterface += InInterface;
+            FirstLevelManager.onFadingInLevel += InInterface;
+        }
+
+        void Update()
+        {
+            if (!inInterface)
             {
-                OpenMenu();
-            }
-            else if(Input.GetKeyDown(KeyCode.Escape) && inOptionsMenu)
-            {
-                CloseSettings();
-                ResumeGame();
+                if(Input.GetKeyDown(KeyCode.Escape) && !inOptionsMenu)
+                {
+                    OpenMenu();
+                }
+                else if(Input.GetKeyDown(KeyCode.Escape) && inOptionsMenu)
+                {
+                    CloseSettings();
+                    ResumeGame();
+                }
             }
         }
-    }
 
-    public void OpenMenu()
-    {
-        inOptionsMenu = true;
-        onOpenOptionMenu(true);
-        menuUI.gameObject.SetActive(true);
-        hUDUI.gameObject.SetActive(false);
-    }
+        public void OpenMenu()
+        {
+            inOptionsMenu = true;
+            onOpenOptionMenu(true);
+            menuUI.gameObject.SetActive(true);
+            hUDUI.gameObject.SetActive(false);
+        }
 
-    public void ResumeGame()
-    {
-        inOptionsMenu = false;
-        onOpenOptionMenu(false);
-        menuUI.gameObject.SetActive(false);
-        hUDUI.gameObject.SetActive(true);
-    }
+        public void ResumeGame()
+        {
+            inOptionsMenu = false;
+            onOpenOptionMenu(false);
+            menuUI.gameObject.SetActive(false);
+            hUDUI.gameObject.SetActive(true);
+        }
 
-    public void OpenSettings()
-    {
-        settingUI.gameObject.SetActive(true);
-        topMenuUI.gameObject.SetActive(false);
-    }
+        public void OpenSettings()
+        {
+            settingUI.gameObject.SetActive(true);
+            topMenuUI.gameObject.SetActive(false);
+        }
 
-    public void CloseSettings()
-    {
-        settingUI.gameObject.SetActive(false);
-        topMenuUI.gameObject.SetActive(true);
-    }
+        public void CloseSettings()
+        {
+            settingUI.gameObject.SetActive(false);
+            topMenuUI.gameObject.SetActive(true);
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
 
-    void InInterface(bool hasEntered)
-    {
-        inInterface = hasEntered;
+        void InInterface(bool hasEntered)
+        {
+            inInterface = hasEntered;
+        }
     }
 }

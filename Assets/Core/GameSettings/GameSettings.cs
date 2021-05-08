@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-namespace PlayGrounds.ET.Scripts.GameSettings
+namespace GameSettings
 {
     public class GameSettings : ScriptableObject
     {

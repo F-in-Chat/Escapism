@@ -1,40 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Parents;
 using UnityEngine;
 
-public class Crouch : MonoBehaviour
+namespace InGame.Characters.Core.Scripts
 {
-    // Test Change
-
-    public CharacterController playerController;
-    public float originalHeight;
-    public float crouchHeight = 1.0f;
-    // Start is called before the first frame update
-    void Start()
+    public class Crouch : MonoBehaviour
     {
-        playerController = GetComponent<CharacterController>();
-        originalHeight = playerController.height;    
-    }
+        // Test Change
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetButtonDown("Crouch"))
+        public CharacterController playerController;
+        public float originalHeight;
+        public float crouchHeight = 1.0f;
+        // Start is called before the first frame update
+        void Start()
         {
-            PlayerCrouch();
-        } else if(Input.GetButtonDown("Stand"))
-        {
-            StandUp();
+            playerController = Parent.GetComponent<CharacterController>(this);
+            if (playerController) originalHeight = playerController.height;    
         }
-    }
 
-    void PlayerCrouch()
-    {
-        playerController.height = crouchHeight;
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            if (!playerController) return;
+            if(Input.GetButtonDown("Crouch"))
+            {
+                PlayerCrouch();
+            } else if(Input.GetButtonDown("Stand"))
+            {
+                StandUp();
+            }
+        }
 
-    void StandUp()
-    {
-        playerController.height = originalHeight;
+        void PlayerCrouch()
+        {
+            playerController.height = crouchHeight;
+        }
+
+        void StandUp()
+        {
+            playerController.height = originalHeight;
+        }
     }
 }

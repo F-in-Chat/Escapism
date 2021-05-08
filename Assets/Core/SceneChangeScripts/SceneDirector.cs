@@ -1,62 +1,63 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneDirector : MonoBehaviour
+namespace SceneChangeScripts
 {
-    [SerializeField]
-    private SceneList[] scenesToLoad;
-
-    // This is a comment!
-
-    public void SingleSceneLoad(string levelName)
+    public class SceneDirector : MonoBehaviour
     {
-        SceneList list = Array.Find(scenesToLoad, scenelist => scenelist.levelName == levelName);
-        if (list == null)
+        [SerializeField]
+        private SceneList[] scenesToLoad;
+
+        // This is a comment!
+
+        public void SingleSceneLoad(string levelName)
         {
-            Debug.Log("There are no levels with that name!");
-            return;
+            SceneList list = Array.Find(scenesToLoad, scenelist => scenelist.levelName == levelName);
+            if (list == null)
+            {
+                Debug.Log("There are no levels with that name!");
+                return;
+            }
+            else
+            {
+                SceneManager.LoadScene(list.mainScene, LoadSceneMode.Single);
+            }
         }
-        else
-        {
-        SceneManager.LoadScene(list.mainScene, LoadSceneMode.Single);
-        }
-    }
     
-    public void MultiSceneLoad(string levelName)
-    {
-        SceneList list = Array.Find(scenesToLoad, scenelist => scenelist.levelName == levelName);
-        if (list == null)
+        public void MultiSceneLoad(string levelName)
         {
-            Debug.Log("There are no levels with that name!");
-            return;
-        }
-        else
-        {
-        SceneManager.LoadScene(list.mainScene, LoadSceneMode.Single);
-        SceneManager.LoadScene(list.gameplayScene, LoadSceneMode.Additive);
-        SceneManager.LoadScene(list.environmentScene, LoadSceneMode.Additive);
-        SceneManager.LoadScene(list.audioScene, LoadSceneMode.Additive);
+            SceneList list = Array.Find(scenesToLoad, scenelist => scenelist.levelName == levelName);
+            if (list == null)
+            {
+                Debug.Log("There are no levels with that name!");
+                return;
+            }
+            else
+            {
+                SceneManager.LoadScene(list.mainScene, LoadSceneMode.Single);
+                SceneManager.LoadScene(list.gameplayScene, LoadSceneMode.Additive);
+                SceneManager.LoadScene(list.environmentScene, LoadSceneMode.Additive);
+                SceneManager.LoadScene(list.audioScene, LoadSceneMode.Additive);
+            }
+
         }
 
-    }
-
-    public void QuitApplication()
-    {
-        // Bring up Warning Text
-        // 0.5 - 1.0 second buffer Coroutine
-        // if no, close warning text
-        // if yes, close application
-        // This will all go in the "Main Menu" script
+        public void QuitApplication()
+        {
+            // Bring up Warning Text
+            // 0.5 - 1.0 second buffer Coroutine
+            // if no, close warning text
+            // if yes, close application
+            // This will all go in the "Main Menu" script
 
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_WEBPLAYER
          Application.OpenURL("https://github.com/F-in-Chat/Escapism");
 #else
          Application.Quit();
 #endif
+        }
     }
 }

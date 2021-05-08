@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GunFire : MonoBehaviour
+namespace InGame.Weapons.Gun.Scripts
 {
-    // Update is called once per frame
-    void Update()
+    public class GunFire : MonoBehaviour
     {
-        if(Input.GetButtonDown("Fire1"))
+        // Update is called once per frame
+        void Update()
         {
-            GetComponent<Animation>().Play("GunShot");
+            if(Input.GetButtonDown("Fire1"))
+            {
+                GetComponent<Animation>().Play("GunShot");
+            }
         }
     }
 }

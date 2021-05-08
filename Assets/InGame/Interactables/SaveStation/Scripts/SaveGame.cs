@@ -1,21 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SaveGame : MonoBehaviour
+namespace InGame.Interactables.SaveStation.Scripts
 {
-    public static SaveGame instance;
-
-    void awake()
+    public class SaveGame : MonoBehaviour
     {
-        if (instance == null)
+        public static SaveGame instance;
+
+        void awake()
         {
-            instance = this;
+            if (instance == null)
+            {
+                instance = this;
+            }
         }
-    }
 
-    public void Save()
-    {
+        public void Save()
+        {
         
+        }
     }
 }
