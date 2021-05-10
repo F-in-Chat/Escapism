@@ -22,6 +22,18 @@ namespace SoundEffects
             Destroy(newGameObject, audioClip.length);
         }
         
+        public void Play(Vector3 position, float volumeMultiplier)
+        {
+            var newGameObject = new GameObject(audioClip.name);
+            newGameObject.transform.position = position;
+            var audioSource = newGameObject.AddComponent<AudioSource>();
+            audioSource.clip = audioClip;
+            audioSource.volume = volume * volumeMultiplier;
+            audioSource.pitch = pitch;
+            audioSource.Play();
+            Destroy(newGameObject, audioClip.length);
+        }
+        
 #if UNITY_EDITOR
     [UnityEditor.CustomEditor(typeof(SoundEffect)), UnityEditor.CanEditMultipleObjects]
     public class Editor : UnityEditor.Editor

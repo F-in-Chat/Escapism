@@ -22,6 +22,8 @@ namespace InGame.Characters.Core.Scripts
         private Vector3 velocity;
         private bool isGrounded;
 
+        public Vector3 Velocity { get; private set; }
+
         private Vector3 GroundCheckPosition => groundCheck ? groundCheck.transform.position : Vector3.zero;
 
         void Awake()
@@ -48,9 +50,9 @@ namespace InGame.Characters.Core.Scripts
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
-            Vector3 move = transform.right * x + transform.forward * z;
+            Velocity = transform.right * x + transform.forward * z;
 
-            controller.Move(move * speed * Time.deltaTime);
+            controller.Move(speed * Time.deltaTime * Velocity);
 
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
