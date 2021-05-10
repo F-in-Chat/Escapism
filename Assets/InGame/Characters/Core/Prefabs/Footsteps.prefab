@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aa625eac18c8a4b8691f570b19504f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footsteps:
+  - {fileID: 11400000, guid: 0ddb44b3390b41f4a97e844e35cd5c6d, type: 2}
+  - {fileID: 11400000, guid: 6e7090a3824dcbd468c085bd2ce046dd, type: 2}
+  footstepDuration: 0.2
+  debugVelocity: 0
