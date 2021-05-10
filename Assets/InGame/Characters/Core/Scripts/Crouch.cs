@@ -11,6 +11,8 @@ namespace InGame.Characters.Core.Scripts
         public float originalHeight;
         public float crouchHeight = 1.0f;
         // Start is called before the first frame update
+        
+        public bool IsCrouching { get; private set; }
         void Start()
         {
             playerController = Parent.GetComponent<CharacterController>(this);
@@ -32,11 +34,13 @@ namespace InGame.Characters.Core.Scripts
 
         void PlayerCrouch()
         {
+            IsCrouching = true;
             playerController.height = crouchHeight;
         }
 
         void StandUp()
         {
+            IsCrouching = false;
             playerController.height = originalHeight;
         }
     }
