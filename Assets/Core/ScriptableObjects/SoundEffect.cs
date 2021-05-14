@@ -1,7 +1,8 @@
 using UnityEngine;
 
-namespace SoundEffects
+namespace ScriptableObjects
 {
+    [CreateAssetMenu(menuName = "Scriptable Objects/Sound Effect")]
     public class SoundEffect : ScriptableObject
     {
         public AudioClip audioClip;

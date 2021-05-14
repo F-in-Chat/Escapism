@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using ScriptableObjects;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 
@@ -60,7 +61,7 @@ namespace Core.Editor
         {
             var gameSettingsGUIDs = AssetDatabase.FindAssets("t:GameSettings");
             var gameSettingsPath = AssetDatabase.GUIDToAssetPath(gameSettingsGUIDs[0]);
-            var gameSettings = AssetDatabase.LoadAssetAtPath<GameSettings.GameSettings>(gameSettingsPath);
+            var gameSettings = AssetDatabase.LoadAssetAtPath<GameSettings>(gameSettingsPath);
             var tag = $"v{gameSettings.Version}";
             UnityEngine.Debug.Log($"Tagging git repository as: {tag}");
             Process.Start("git", $"tag -a {tag} -m \"\"")?.WaitForExit();

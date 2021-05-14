@@ -57,3 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac986202a445c8478d5bff4e2401ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectSound: {fileID: 0}
+  collectParticles: {fileID: 0}
+  itemType: {fileID: 0}
+  itemPickupPopup: {fileID: 11400000, guid: ed9ed03d32a6c1149953d3f87bcca518, type: 2}
+  quantity: 0
