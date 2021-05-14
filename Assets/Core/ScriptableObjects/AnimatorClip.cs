@@ -6,6 +6,7 @@ namespace ScriptableObjects
     public class AnimatorClip : ScriptableObject
     {
         public int hash;
+        public float transitionTime;
 
         private void OnValidate()
         {
@@ -17,6 +18,13 @@ namespace ScriptableObjects
             if (!animator) return;
             if (!animatorClip) return;
             animator.Play(animatorClip.hash, -1, 0);
+        }
+
+        public static void CrossFade(Animator animator, AnimatorClip animatorClip)
+        {
+            if (!animator) return;
+            if (!animatorClip) return;
+            animator.CrossFade(animatorClip.hash, animatorClip.transitionTime, -1, 0);
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using InGame.Characters.Core.Scripts;
 using UnityEngine;
 

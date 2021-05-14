@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Extensions;
 using InGame.Items.Scripts;
 using Parents;
 using UI.InventoryUI;
 using UnityEngine;
-using UnityEventExtension;
 
 namespace InGame.Characters.Core.Scripts
 {
