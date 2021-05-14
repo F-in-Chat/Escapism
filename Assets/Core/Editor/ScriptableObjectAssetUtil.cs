@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace SailorStrike.Editor.Global
+namespace Core.Editor
 {
     public static class ScriptableObjectAssetUtil
     {

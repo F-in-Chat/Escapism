@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a0bf7104167e27545a3405ce1c7184c3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - animator: {instanceID: 0}
+  - openDoor: {fileID: 11400000, guid: c636ac01d5512184ca1c97ef8e2ffc96, type: 2}
+  - closeDoor: {fileID: 11400000, guid: 2fa1702722bffe24b8f8c5adf7b01563, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,7 +1,7 @@
 ﻿using System;
 using Extensions;
 using Parents;
-using SoundEffects;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace InGame.Characters.Core.Scripts

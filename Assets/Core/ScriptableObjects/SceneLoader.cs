@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SceneChangeScripts
+namespace ScriptableObjects
 {
     public class SceneLoader : ScriptableObject
     {

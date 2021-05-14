@@ -2,7 +2,7 @@
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace SailorStrike.Editor.Global
+namespace Core.Editor
 {
     public static class ComponentTools
     {

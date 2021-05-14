@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace UnityEventExtension
+namespace Extensions
 {
     public static class UnityEvents
     {

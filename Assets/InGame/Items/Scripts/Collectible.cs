@@ -1,6 +1,7 @@
 ﻿using InGame.Characters.Core.Scripts;
 using Parents;
-using SoundEffects;
+using ScriptableObjects;
+using UI.ItemPickup;
 using UnityEngine;
 
 namespace InGame.Items.Scripts
@@ -10,6 +11,7 @@ namespace InGame.Items.Scripts
         [SerializeField] private SoundEffect collectSound;
         [SerializeField] private GameObject collectParticles;
         [SerializeField] private ItemType itemType;
+        [SerializeField] private ItemPickupPopup itemPickupPopup;
         [SerializeField] private int quantity;
         private Transform item;
 
@@ -27,6 +29,7 @@ namespace InGame.Items.Scripts
             if (!collector) return;
             collector.Collect(this);
             if (collectSound) collectSound.Play(transform.position);
+            if (itemPickupPopup) itemPickupPopup.Display($"You picked up <b>{item.name}</b>!");
             SpawnParticles();
             Destroy(item.gameObject);
         }
